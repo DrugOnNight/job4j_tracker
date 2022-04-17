@@ -12,6 +12,7 @@ public class Cat {
     public void eat(String meat) {
         this.food = meat;
     }
+
     public void giveNick(String nick) {
         this.name = nick;
     }
