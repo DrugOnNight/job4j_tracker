@@ -4,12 +4,8 @@ public class Dentist extends Doctor {
 
     private String skills;
 
-    public Dentist() {
-
-    }
-
-    public Dentist(String certificates) {
-        super();
+    public Dentist(String name, String surname, String education, String birthday, int experience, String certificates) {
+        super(name, surname, education, birthday, experience);
         this.skills = certificates;
     }
 

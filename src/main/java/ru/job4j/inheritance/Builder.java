@@ -4,12 +4,8 @@ public class Builder extends Engineer {
 
     private boolean helmet;
 
-    public Builder() {
-
-    }
-
-    public Builder(boolean helmet) {
-        super();
+    public Builder(String name, String surname, String education, String birthday, boolean toolbox, boolean knowledge, boolean helmet) {
+        super(name, surname, education, birthday, toolbox, knowledge);
         this.helmet = helmet;
     }
 

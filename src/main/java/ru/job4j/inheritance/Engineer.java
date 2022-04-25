@@ -5,16 +5,6 @@ public class Engineer extends Profession {
     private boolean toolbox;
     private boolean knowledge;
 
-    public Engineer() {
-
-    }
-
-    public Engineer(boolean toolbox, boolean knowledge) {
-        super();
-        this.toolbox = toolbox;
-        this.knowledge = knowledge;
-    }
-
     public Engineer(String name, String surname, String education, String birthday, boolean toolbox, boolean knowledge) {
         super(name, surname, education, birthday);
         this.toolbox = toolbox;
