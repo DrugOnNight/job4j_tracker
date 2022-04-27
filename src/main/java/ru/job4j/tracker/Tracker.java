@@ -29,7 +29,7 @@ public class Tracker {
         int count = 0;
         Item[] rsl = new Item[size];
         for (int i = 0; i < items.length; i++) {
-            if(items[i] != null) {
+            if (items[i] != null) {
                 rsl[count] = items[i];
                 count++;
             }
