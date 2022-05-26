@@ -1,7 +1,5 @@
 package ru.job4j.search;
 
-import com.sun.jdi.connect.Connector;
-
 import java.util.LinkedList;
 
 public class PriorityQueue {
