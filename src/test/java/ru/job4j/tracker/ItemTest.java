@@ -1,11 +1,13 @@
 package ru.job4j.tracker;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 
 public class ItemTest {
 
@@ -20,7 +22,7 @@ public class ItemTest {
         excepted.add(new Item("Cook food"));
         excepted.add(new Item("Debug program"));
         excepted.add(new Item("Fix bug"));
-        Assert.assertEquals(excepted, items);
+        assertThat(items, is(excepted));
     }
 
     @Test
@@ -34,6 +36,6 @@ public class ItemTest {
         excepted.add(new Item("Fix bug"));
         excepted.add(new Item("Debug program"));
         excepted.add(new Item("Cook food"));
-        Assert.assertEquals(excepted, items);
+        assertThat(items, is(excepted));
     }
 }
