@@ -6,18 +6,14 @@ public class Departments {
 
     public static List<String> fillGaps(List<String> deps) {
         Set<String> tmp = new LinkedHashSet<>();
-        List<String> rsl = new ArrayList<>();
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                start += "/" + el;
+                start += "".equals(start) ? el : "/" + el;
                 tmp.add(start);
             }
         }
-        for (String dep : tmp) {
-            rsl.add(dep.substring(1));
-        }
-        return rsl;
+        return new ArrayList<>(tmp);
     }
 
     public static void sortAsc(List<String> orgs) {
