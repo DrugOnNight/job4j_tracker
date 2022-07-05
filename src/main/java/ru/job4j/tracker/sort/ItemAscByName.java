@@ -1,7 +1,8 @@
-package ru.job4j.tracker;
+package ru.job4j.tracker.sort;
+
+import ru.job4j.tracker.model.Item;
 
 import java.util.Comparator;
-import java.util.stream.Collector;
 
 public class ItemAscByName implements Comparator<Item> {
     @Override

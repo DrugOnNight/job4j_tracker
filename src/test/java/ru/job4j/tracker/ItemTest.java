@@ -1,6 +1,9 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import ru.job4j.tracker.model.Item;
+import ru.job4j.tracker.sort.ItemAscByName;
+import ru.job4j.tracker.sort.ItemDescByName;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,7 +20,7 @@ public class ItemTest {
         items.add(new Item("Fix bug"));
         items.add(new Item("Debug program"));
         items.add(new Item("Cook food"));
-        Collections.sort(items, new ItemAscByName());
+        items.sort(new ItemAscByName());
         List<Item> excepted = new ArrayList<>();
         excepted.add(new Item("Cook food"));
         excepted.add(new Item("Debug program"));
@@ -31,7 +34,7 @@ public class ItemTest {
         items.add(new Item("Cook food"));
         items.add(new Item("Fix bug"));
         items.add(new Item("Debug program"));
-        Collections.sort(items, new ItemDescByName());
+        items.sort(new ItemDescByName());
         List<Item> excepted = new ArrayList<>();
         excepted.add(new Item("Fix bug"));
         excepted.add(new Item("Debug program"));
