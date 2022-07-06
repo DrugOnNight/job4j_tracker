@@ -35,6 +35,12 @@ public class SqlTracker implements Store, AutoCloseable {
         }
     }
 
+    private Item getItemByResultSet(ResultSet rs) throws SQLException{
+            return new Item(rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getTimestamp("created").toLocalDateTime());
+    }
+
     @Override
     public Item add(Item item) {
         try (PreparedStatement st =
@@ -88,11 +94,7 @@ public class SqlTracker implements Store, AutoCloseable {
         try (Statement st = cn.createStatement();
              ResultSet resultSet = st.executeQuery("SELECT * FROM items;")) {
             while (resultSet.next()) {
-                rsl.add(new Item(
-                        resultSet.getInt("id"),
-                        resultSet.getString("name"),
-                        resultSet.getTimestamp("created").toLocalDateTime()
-                ));
+                rsl.add(getItemByResultSet(resultSet));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,11 +110,7 @@ public class SqlTracker implements Store, AutoCloseable {
             st.setString(1, key);
             try (ResultSet resultSet = st.executeQuery()) {
                 while (resultSet.next()) {
-                    rsl.add(new Item(
-                            resultSet.getInt("id"),
-                            resultSet.getString("name"),
-                            resultSet.getTimestamp("created").toLocalDateTime()
-                    ));
+                    rsl.add(getItemByResultSet(resultSet));
                 }
             }
         } catch (SQLException e) {
@@ -129,11 +127,7 @@ public class SqlTracker implements Store, AutoCloseable {
             st.setInt(1, id);
             try (ResultSet resultSet = st.executeQuery()) {
                 if (resultSet.next()) {
-                    rsl = new Item(
-                            resultSet.getInt("id"),
-                            resultSet.getString("name"),
-                            resultSet.getTimestamp("created").toLocalDateTime()
-                    );
+                    rsl = getItemByResultSet(resultSet);
                 }
             }
         } catch (SQLException e) {
